@@ -2,6 +2,6 @@
 
 public class Tracks
 {
-    public ColonyTrack ColonyTrack { get; set; } = new();
-    public ReturnTrack ReturnTrack { get; set; } = new();
+    public ColonyTrack ColonyTrack { get; init; } = new();
+    public ReturnTrack ReturnTrack { get; init; } = new();
 }

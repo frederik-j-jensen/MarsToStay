@@ -7,33 +7,13 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
-    private readonly GameRepository _gameRepository;
-
-    public HomeController(ILogger<HomeController> logger, GameRepository gameRepository)
+    public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
-        _gameRepository = gameRepository;
     }
 
     public IActionResult Index()
     {
-        return View();
-    }
-
-    public IActionResult StartGame()
-    {
-        var game = _gameRepository.Create();
-        var gameId = game.Id;
-        return View();
-    }
-
-    public IActionResult JoinGame(Guid gameId)
-    {
-        var game = _gameRepository.FindById(gameId);
-        if(game == null)
-        {
-            return NotFound();
-        }
         return View();
     }
 

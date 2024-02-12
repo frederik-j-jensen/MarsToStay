@@ -1,11 +1,16 @@
-﻿namespace MarsToStay.Models;
+﻿using System.Text;
+
+namespace MarsToStay.Models;
 public class Game : Entity
 {
-    public List<Player> Players { get; private set; } = [];
-    public Characters Characters { get; private set; } = new();
+    public List<Player> Players { get; init; } = [];
+    public Characters Characters { get; init; } = new();
     public Story? Story { get; private set; } = null;
 
-    public DiceRoller DiceRoller { get; private set; } = new();
+    public Game()
+    {
+        AddHost();
+    }
 
     public void BeginStory()
     {
@@ -23,14 +28,26 @@ public class Game : Entity
     {
         if (Players.Contains(player) && Characters.MainCharacters.Contains(character))
         {
-            player.AssignRole(character);
+            player.AssignCharacter(character);
         }
     }
 
     public Player AddPlayer(string name)
     {
         var player = new Player { Name = name };
-        Players.Add(player);
+        AddPlayer(player);
         return player;
     }
+
+    private void AddHost()
+    {
+        var player = new Player { Name = "Host", Role = PlayerRoles.Host };
+        AddPlayer(player);
+    }
+
+    private void AddPlayer(Player player)
+    {
+        Players.Add(player);
+    }
+
 }

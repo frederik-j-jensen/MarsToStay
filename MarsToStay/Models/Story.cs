@@ -2,11 +2,12 @@
 
 public class Story
 {
-    public Chapters Chapters { get; private set; } = new();
+    public Chapters Chapters { get; init; } = new();
     public Chapter CurrentChapter { get; set; }
-    public Characters Characters { get; private set; }
-    public PlayerOrder ChapterOrder { get; private set; }
-    public Tracks Tracks { get; private set; } = new();
+    public Characters Characters { get; init; }
+    public PlayerOrder ChapterOrder { get; init; }
+    public Tracks Tracks { get; init; } = new();
+    public DiceRoller DiceRoller { get; init; } = new();
 
     public Story(Characters characters, IEnumerable<Player> players)
     {

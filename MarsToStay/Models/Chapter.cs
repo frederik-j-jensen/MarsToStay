@@ -2,7 +2,7 @@
 
 public class Chapter
 {
-    public string Title { get; set; } = string.Empty;
+    public string Title { get; init; } = string.Empty;
     public bool IsCompleted { get; set; } = false;
     public bool IsVisible { get; set; } = true;
     public PlayerOrder? SceneOrder { get; set; }

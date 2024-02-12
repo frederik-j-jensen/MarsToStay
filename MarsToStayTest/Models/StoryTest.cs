@@ -7,9 +7,9 @@ public class StoryTest
     {
         var players = new List<Player> { new(), new(), new() };
         var characters = new Characters();
-        players[0].AssignRole(characters.MainCharacters[0]);
-        players[1].AssignRole(characters.MainCharacters[1]);
-        players[2].AssignRole(characters.MainCharacters[2]);
+        players[0].AssignCharacter(characters.MainCharacters[0]);
+        players[1].AssignCharacter(characters.MainCharacters[1]);
+        players[2].AssignCharacter(characters.MainCharacters[2]);
 
         var story = new Story(characters, players);
 
@@ -23,9 +23,9 @@ public class StoryTest
     {
         var players = new List<Player> { new(), new(), new() };
         var characters = new Characters();
-        players[0].AssignRole(characters.MainCharacters[0]);
-        players[1].AssignRole(characters.MainCharacters[1]);
-        players[2].AssignRole(characters.MainCharacters[2]);
+        players[0].AssignCharacter(characters.MainCharacters[0]);
+        players[1].AssignCharacter(characters.MainCharacters[1]);
+        players[2].AssignCharacter(characters.MainCharacters[2]);
 
         var story = new Story(characters, players);
 

@@ -39,5 +39,4 @@ public class DiceRoller
 
 }
 
-
 public record ProgressResult(int Roll, int TrackDelta, string Result);

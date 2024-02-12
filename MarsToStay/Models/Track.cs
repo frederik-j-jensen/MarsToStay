@@ -2,8 +2,8 @@
 
 public abstract class Track
 {
-    public string Name { get; set; } = string.Empty;
-    public int Value { get; set; } = 0;
+    public string Name { get; init; } = string.Empty;
+    public int Value { get; protected set; } = 0;
     public bool IsVisible { get; set; } = false;
 
     public void Adjust(int delta)

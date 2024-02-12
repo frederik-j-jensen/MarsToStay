@@ -1,0 +1,19 @@
+﻿@model MarsToStay.Models.Game
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Game</h4>
+    Here is the game:
+    <hr />
+    <p>
+        @Html.DisplayFor(model => model.Id)
+    </p>
+    <p>
+        @Html.DisplayFor(model => model.Players.Count)
+    </p>
+</div>

@@ -3,11 +3,11 @@ namespace MarsToStayTest.EntityFramework;
 public class RepositoryTest
 {
     [Fact]
-    public void Test1()
+    public async void CreateAndFindById()
     {
         var repo = new Repository<Entity>();
-        var entity = repo.Create();
-        var found = repo.FindById(entity.Id);
+        var entity = await repo.Create();
+        var found = await repo.FindById(entity.Id);
         Assert.Equal(entity, found);
     }
 }

@@ -1,19 +1,24 @@
 namespace MarsToStay.EntityFramework;
 public class Repository<T> where T : Entity, new()
 {
-    private readonly Dictionary<string, T> _entities = [];
-    public T? FindById(Guid id)
-    {
-        if (_entities.TryGetValue(id.ToString(), out var entity))
-            return entity;
+    private readonly Dictionary<Guid, T> _entities = [];
+    public async Task<T?> FindById(Guid id)
+    {        
+        if (_entities.TryGetValue(id, out var entity))
+            return await Task.FromResult(entity);
         return null;
     }
 
-    public T Create()
+    public async Task<T?> FindById(string id)
+    {
+        return await FindById(new Guid(id));
+    }
+
+    public async Task<T> Create()
     {
         var entity = new T();
-        _entities.Add(entity.Id.ToString(), entity);
-        return entity;
+        _entities.Add(entity.Id, entity);
+        return await Task.FromResult(entity);
     }
 
 }
